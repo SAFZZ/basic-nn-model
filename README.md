@@ -1,18 +1,25 @@
+## EXP.NO : 1 
+## DATE :
+
 # Developing a Neural Network Regression Model
 
-## AIM
+## AIM:
 
 To develop a neural network regression model for the given dataset.
 
-## THEORY
+## THEORY:
 
-Explain the problem statement
+Neural Networks
+Neural networks are a set of algorithms, modeled loosely after the human brain, that are designed to recognize patterns. They interpret sensory data through a kind of machine perception, labeling or clustering raw input. The patterns they recognize are numerical, contained in vectors, into which all real-world data, be it images, sound, text or time series, must be translated.
 
-## Neural Network Model
+Regression model
+A regression model provides a function that describes the relationship between one or more independent variables and a response, dependent, or target variable. For example, the relationship between height and weight may be described by a linear regression mode.
 
-Include the neural network model diagram.
+## Neural Network Model:
 
-## DESIGN STEPS
+![image](https://user-images.githubusercontent.com/75413726/187075533-8dc7904c-1988-44a3-887f-c985661bd713.png)
+
+## DESIGN STEPS:
 
 ### STEP 1:
 
@@ -42,26 +49,71 @@ Plot the performance plot
 
 Evaluate the model with the testing data.
 
-## PROGRAM
+## PROGRAM:
+```python
+from google.colab import auth
+import gspread
+from google.auth import default
+import pandas as pd
+auth.authenticate_user()
+creds, _ = default()
+gc = gspread.authorize(creds)
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+worksheet = gc.open('StudentsData').sheet1
+rows = worksheet.get_all_values()
+df = pd.DataFrame(rows[1:], columns=rows[0])
+df.head()
+df = df.astype({'Input':'float'})
+df = df.astype({'Output':'float'})
+df.dtypes
+X=df[['Input']].values
+X
+Y=df[['Output']].values
+Y
+X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=0.33,random_state=50)
+X_train
+scaler=MinMaxScaler()
+scaler.fit(X_train)
+scaler.fit(X_test)
+X_train1=scaler.transform(X_train)
+X_test1=scaler.transform(X_test)
+X_train1
+ai_brain=Sequential([
+    Dense(4,activation='relu'),
+    Dense(6,activation='relu'),
+    Dense(1)
+])
+ai_brain.compile(optimizer='rmsprop',loss='mse')
+ai_brain.fit(X_train1,Y_train,epochs=8000)
+loss_df=pd.DataFrame(ai_brain.history.history)
+loss_df.plot()
+ai_brain.evaluate(X_test1,Y_test)
+input=[[100]]
+input1=scaler.transform(input)
+input1.shape
+ai_brain.predict(input1)
+```
+## Dataset Information:
 
-Include your code here
+![image](https://user-images.githubusercontent.com/75413726/187073217-1465db96-3d6d-4c1b-80e4-23ac7e3010be.png)
 
-## Dataset Information
+## OUTPUT:
 
-Include screenshot of the dataset
+### Training Loss Vs Iteration Plot:
 
-## OUTPUT
+![image](https://user-images.githubusercontent.com/75413726/187073791-a50eecaf-225d-449d-b816-738ff1a7f45d.png)
 
-### Training Loss Vs Iteration Plot
+### Test Data Root Mean Squared Error:
 
-Include your plot here
+0.00301834917627275
 
-### Test Data Root Mean Squared Error
+### New Sample Data Prediction:
 
-Find the test data root mean squared error
+![image](https://user-images.githubusercontent.com/75413726/187073828-30bb5c9c-3a38-4d83-8806-113fdd4b738b.png)
 
-### New Sample Data Prediction
+## RESULT:
 
-Include your sample input and output here
-
-## RESULT
+Succesfully created and trained a neural network regression model for the given dataset.
