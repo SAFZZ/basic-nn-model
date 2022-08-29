@@ -111,11 +111,12 @@ ai_brain.predict(input1)
 
 ### Test Data Root Mean Squared Error:
 
-0.00301834917627275
+![image](https://user-images.githubusercontent.com/75234912/187118218-0353c6a4-75ea-49a9-b458-6af202e70a34.png)
+
 
 ### New Sample Data Prediction:
 
-![image](https://user-images.githubusercontent.com/75413726/187073828-30bb5c9c-3a38-4d83-8806-113fdd4b738b.png)
+![image](https://user-images.githubusercontent.com/75234912/187118473-40610946-a689-416b-9f9c-bb01c701f544.png)
 
 ## RESULT:
 
