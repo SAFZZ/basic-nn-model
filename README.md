@@ -106,7 +106,8 @@ ai_brain.predict(input1)
 
 ### Training Loss Vs Iteration Plot:
 
-![image](https://user-images.githubusercontent.com/75413726/187073791-a50eecaf-225d-449d-b816-738ff1a7f45d.png)
+![image](https://user-images.githubusercontent.com/75234912/187117284-9250fd59-a2d2-4b6a-a121-5aac1229e78d.png)
+
 
 ### Test Data Root Mean Squared Error:
 
