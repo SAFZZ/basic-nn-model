@@ -99,7 +99,8 @@ ai_brain.predict(input1)
 ```
 ## Dataset Information:
 
-![image](https://user-images.githubusercontent.com/75413726/187073217-1465db96-3d6d-4c1b-80e4-23ac7e3010be.png)
+![image](https://user-images.githubusercontent.com/75234912/187115909-4710bbb2-19a3-49ab-9c2e-40877951e8aa.png)
+
 
 ## OUTPUT:
 
