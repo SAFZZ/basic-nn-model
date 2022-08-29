@@ -17,7 +17,8 @@ A regression model provides a function that describes the relationship between o
 
 ## Neural Network Model:
 
-![image](https://user-images.githubusercontent.com/75413726/187075533-8dc7904c-1988-44a3-887f-c985661bd713.png)
+![image](https://user-images.githubusercontent.com/75234912/187115465-d378ac90-b968-4c35-9a3a-aa043eff4b71.png)
+
 
 ## DESIGN STEPS:
 
